@@ -27,37 +27,37 @@ public abstract class GameDescription {
     Room currentRoom;
 
     public void setCommands() {
-        Command speak = new Command(CommandType.SPEAK, "parla");
+        Command speak = new Command(CommandType.SPEAK, "speak");
         speak.setAlias(new String[]{"ascolta", "discuti", "dialoga"});
         commands.add(speak);
         Command menù = new Command(CommandType.MENU, "menù");
-        menù.setAlias(new String[]{"menu", "comandi", "mosse"});
+        menù.setAlias(new String[]{"menu", "comandi", "mosse", "command", "commands"});
         commands.add(menù);
         Command next = new Command(CommandType.NEXT, "next");
-        next.setAlias(new String[]{"avanti", "su", "prossima"});
+        next.setAlias(new String[]{"avanti", "prossima"});
         commands.add(next);
         Command previous = new Command(CommandType.PREVIOUS, "previous");
-        previous.setAlias(new String[]{"indietro", "giu", "precedente"});
+        previous.setAlias(new String[]{"indietro", "precedente"});
         commands.add(previous);
-        Command iventory = new Command(CommandType.INVENTORY, "inventario");
-        iventory.setAlias(new String[]{"inv","inventory"});
+        Command iventory = new Command(CommandType.INVENTORY, "inventory");
+        iventory.setAlias(new String[]{"inv","inventario"});
         commands.add(iventory);
         Command end = new Command(CommandType.END, "end");
-        end.setAlias(new String[]{"end", "fine", "esci", "quit", "exit"});
+        end.setAlias(new String[]{"fine", "esci", "quit", "exit"});
         commands.add(end);
-        Command look = new Command(CommandType.LOOK_AT, "osserva");
-        look.setAlias(new String[]{"guarda", "vedi", "look", "cerca", "trova"});
+        Command look = new Command(CommandType.LOOK_AT, "look");
+        look.setAlias(new String[]{"guarda", "vedi", "osserva", "cerca", "trova"});
         commands.add(look);
-        Command pickup = new Command(CommandType.PICK_UP, "raccogli");
+        Command pickup = new Command(CommandType.PICK_UP, "pick_up");
         pickup.setAlias(new String[]{"prendi","take"});
         commands.add(pickup);
-        Command push = new Command(CommandType.PUSH, "premi");
+        Command push = new Command(CommandType.PUSH, "push");
         commands.add(push);
     }
 
     public void resetLevel(Level level) {
         
-        for(Command push : commands){
+        for(Command push : commands){ // set the command push alias
             if(push.getType() == CommandType.PUSH){
                 push.setAlias(level.getObjPassive().getCmdAlias());
             }

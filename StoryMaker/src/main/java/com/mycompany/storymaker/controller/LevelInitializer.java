@@ -57,15 +57,15 @@ public class LevelInitializer {
         this.count += 1;
         room.add(new Room(count, roomName, roomDescr));
         fig.add(new Figure(count, figName, figDescr));
-        obj.add(new AdvObject(count, objNameActive, objDescrActive, objAliasActive.split(",")));
+        obj.add(new AdvObject(count, objNameActive, objDescrActive, objAliasActive.split(", |,")));
 
 
     }
     
     public void bufferObjPas(String objNamePassive, String objDescrPassive, String objAliasPassive, String objCmdAliasPassive){
-        objPassive = new AdvObject(count, objNamePassive, objDescrPassive, objAliasPassive.split(","));
+        objPassive = new AdvObject(count, objNamePassive, objDescrPassive, objAliasPassive.split(", |,"));
         objPassive.setPickupable(false);
-        objPassive.setCmdAlias(objCmdAliasPassive.split(","));
+        objPassive.setCmdAlias(objCmdAliasPassive.split(", |,"));
 
     }
         

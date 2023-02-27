@@ -11,8 +11,6 @@ import com.mycompany.storymaker.util.Utilities;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import com.mycompany.storymaker.model.Story;
@@ -31,7 +29,7 @@ public class Ui extends javax.swing.JFrame {
     private boolean signIn = false;
     private boolean storySelected = false;
     private User login = new User();
-    StoryList storyList = new StoryList();
+    private StoryList storyList = new StoryList();
     private int storyId;
     private Music music;
 
@@ -1065,10 +1063,10 @@ public class Ui extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-
+   
     private void menuNew(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNew
 
-        frameNewStory.setVisible(true);
+        frameNewStory.setVisible(true); 
 
         //set the label empty
         enabledLevelText();
@@ -1083,22 +1081,26 @@ public class Ui extends javax.swing.JFrame {
         if (!login.isIsLogin()) {
             JOptionPane.showMessageDialog(frameNewStory, "login is required.", "error", JOptionPane.ERROR_MESSAGE);
         } else {
+            
             labelSelectAuthor.setText("");
             labelSelectTitle.setText("");
             textSelectDescr.setText("");
             labelSelectScore.setText("");
             labelSelectDate.setText("");
+            
             DefaultListModel listModel = new DefaultListModel();
             Client client = new Client();
 
             this.storyList = client.getStoryList(); //requests information from available stories
+            
             if (!storyList.getStory().isEmpty()) {
                 List<String> listTitle = new ArrayList<>();
                 for (int i = 0; i < storyList.getStory().size(); i++) {
                     listTitle.add(storyList.getStory().get(i).getTitle());
                 }
                 Utilities.twoSortStr(listTitle, storyList); //sorts the first and the second parameter based on the first
-                for (int i = 0; i < storyList.getStory().size(); i++) {
+                
+                for (int i = 0; i < storyList.getStory().size(); i++) {                  
                     listModel.addElement(listTitle.get(i));
                 }
                 listSelectStory.setModel(listModel);
@@ -1154,7 +1156,7 @@ public class Ui extends javax.swing.JFrame {
 
             } else {
 
-                if (checkStoryOnline.isSelected()) {
+                if (checkStoryOnline.isSelected()) { 
                     if (!login.isIsLogin()) {
                         JOptionPane.showMessageDialog(frameNewStory, "you are not sign-in.", "failed insertion", JOptionPane.ERROR_MESSAGE);
                     } else {
@@ -1174,7 +1176,7 @@ public class Ui extends javax.swing.JFrame {
                         }
 
                     }
-                } else {
+                } else { 
                     this.storyBuilder.setStoryTitle(textTitle.getText());
                     this.storyBuilder.setStoryDescription(textStoryDescr.getText());
                     frameNewStory.dispose();

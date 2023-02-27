@@ -136,7 +136,7 @@ public class StoryBuilder extends GameDescription {
         );
         animation.start();
     }
-
+    //this methods print random gif from directory for tot second
     private void printerEnd() {
         Thread animation = new Thread(new Runnable() {
             @Override
@@ -157,7 +157,7 @@ public class StoryBuilder extends GameDescription {
         );
         animation.start();
     }
-
+    //this methods print random gif from directory for tot second
     private void printerNextLvl() {
         Thread animation = new Thread(new Runnable() {
             @Override
