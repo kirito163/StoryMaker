@@ -77,6 +77,7 @@ public class StoryBuilder extends GameDescription {
     }
 
     public void config(List<Level> levels, JTextArea textOutput, JLabel jLabelGif, JCheckBoxMenuItem checkAnimation) {
+        setCommands();
         this.checkAnimation = checkAnimation;
         this.jLabelGif = jLabelGif;
         this.exit = false;
@@ -96,7 +97,7 @@ public class StoryBuilder extends GameDescription {
             System.err.println(ex);
         }
         textOutput.setText(Printers.printerStoryDescription(storyTitle, storyDescription));
-        setCommands();
+        
         gifDir();
 
     }

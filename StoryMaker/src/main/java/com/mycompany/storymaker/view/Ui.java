@@ -1474,6 +1474,7 @@ public class Ui extends javax.swing.JFrame {
         textObjPsvName.setText("");
         textObjPsvDescr.setText("");
         textObjPsvAlias.setText("");
+        textObjPsvCmdAlias.setText("");
 
     }
 
