@@ -28,7 +28,7 @@ public abstract class GameDescription {
 
     public void setCommands() {
         Command speak = new Command(CommandType.SPEAK, "speak");
-        speak.setAlias(new String[]{"ascolta", "discuti", "dialoga"});
+        speak.setAlias(new String[]{"ascolta", "discuti", "dialoga", "parla"});
         commands.add(speak);
         Command menù = new Command(CommandType.MENU, "menù");
         menù.setAlias(new String[]{"menu", "comandi", "mosse", "command", "commands"});
